@@ -9,12 +9,14 @@ import pickle
 from flask_cors import CORS
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
+import os
 
 # model = None
 
+database_url = os.environ['DATABASE_URL']
+client = MongoClient(database_url)
 
-client = MongoClient('mongodb+srv://destro45:Kmkm561111aeae@sandbox.obqry3b.mongodb.net/')
-
+secret_key = os.environ['SECRET_KEY']
 
 def run_aggregation():
     db = client['test']
@@ -201,7 +203,7 @@ app = Flask(__name__)
 
 @app.before_request
 def authenticate():
-    if request.get_json().get("key") != '1234':
+    if request.get_json().get("key") != secret_key:
         return jsonify({"message":'invalid API key'})
 
 
