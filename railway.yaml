@@ -1,0 +1,3 @@
+name: my-flask-api
+commands:
+  - railway run python main.py
