@@ -1,0 +1,7 @@
+Flask==2.2.2
+pandas
+pymongo
+scikit-learn
+APScheduler==3.7.0
+Flask-Cors==3.0.10
+Flask-Limiter==1.4
