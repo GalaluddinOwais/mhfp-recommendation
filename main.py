@@ -196,8 +196,8 @@ def run_aggregation_certain_id(string_id):
 app = Flask(__name__)
 
 
-CORS(app, origins='www.google.com')
-Limiter(get_remote_address, app=app, default_limits=["10/minute"])
+# CORS(app, origins='www.google.com')
+# Limiter(get_remote_address, app=app, default_limits=["10/minute"])
 
 @app.before_request
 def authenticate():
